@@ -1,4 +1,16 @@
+# Open SOQL example app with React hooks
+
+Example app of [Open SOQL](https://github.com/shellyln/open-soql).
+
+<img src="https://shellyln.github.io/assets/image/open-soql-logo.svg" title="Open SOQL logo" style="width: 100px">
+
+SOQL is an object-oriented query language that allows you to query related data based on an object graph.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+---
 
 ## Available Scripts
 
