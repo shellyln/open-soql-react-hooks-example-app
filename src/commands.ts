@@ -1,5 +1,8 @@
+
 import { build } from 'open-soql/modules/builder';
 import { Account_norels, Contact_norels } from './types';
+
+
 
 type Store = {
     Account: Account_norels[];
@@ -23,7 +26,7 @@ const store: Store = {
     ],
 };
 
-export const { compile, soql, insert, update, remove, transaction } = build({
+export const { compile, soql, insert, update, remove, touch, transaction, subscribe, unsubscribe } = build({
     relationships: {
         Account: { Contacts: ['Contact'] },
         Contact: { Account: 'Account' },
