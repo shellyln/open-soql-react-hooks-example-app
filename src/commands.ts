@@ -32,7 +32,7 @@ export const { compile, soql, insert, update, remove, touch, transaction, subscr
         Contact: { Account: 'Account' },
     },
     resolvers: {
-        query: {
+        query: { // `Select` query resolvers
             Account: (fields, conditions, limit, offset, ctx) => {
                 let data = store.Account;
                 if (ctx.parent && ctx.parentType === 'detail') {
@@ -48,7 +48,7 @@ export const { compile, soql, insert, update, remove, touch, transaction, subscr
                 return Promise.resolve(data.map(x => ({...x})));
             },
         },
-        update: {
+        update: { // `Update` DML resolvers
             Account: (records: Partial<Account_norels>[], ctx) => {
                 const ret: Partial<Account_norels>[] = [];
                 for (const rec of records) {
@@ -81,6 +81,7 @@ export const { compile, soql, insert, update, remove, touch, transaction, subscr
                 }
                 return Promise.resolve(ret);
             },
-        }
+        },
+        // You can also define resolvers for `insert` and `remove`.
     },
 });

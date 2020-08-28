@@ -1,15 +1,16 @@
 
 import   React,
-       { useState, useEffect } from 'react';
-import { Subscriber }          from 'open-soql/modules/types';
+       { useState,
+         useEffect }   from 'react';
+import { Subscriber }  from 'open-soql/modules/types';
 import { Account,
-         Contact }             from './types';
+         Contact }     from './types';
 import { compile,
          update,
          subscribe,
-         unsubscribe }         from './commands';
-import { useSoql }             from './soql-hooks';
-import                              './Accounts.css';
+         unsubscribe } from './commands';
+import { useSoql }     from './soql-hooks';
+import                      './Accounts.css';
 
 
 
@@ -33,6 +34,8 @@ function Accounts() {
     };
     const [{subscriber}] = useState({subscriber: subscriber_});
 
+    // Subscribe to DML events with side effects hook.
+    // When unsubscribing, you need to pass the same function object as when subscribing.
     useEffect(() => {
         const d = data;
         if (d) {
