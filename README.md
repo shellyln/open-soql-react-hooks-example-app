@@ -6,8 +6,11 @@ Example app of [Open SOQL](https://github.com/shellyln/open-soql).
 
 SOQL is an object-oriented query language that allows you to query related data based on an object graph.
 
+---
 
-Custom hook ([soql-hooks.ts](https://github.com/shellyln/open-soql-react-hooks-example-app/blob/master/src/soql-hooks.ts))
+## Usage of hook
+
+### Custom hook ([soql-hooks.ts](https://github.com/shellyln/open-soql-react-hooks-example-app/blob/master/src/soql-hooks.ts))
 ```ts
 ...
 export function useSoql<R>(query: IQuery, params?: QueryParams) {
@@ -16,7 +19,7 @@ export function useSoql<R>(query: IQuery, params?: QueryParams) {
 ...
 ```
 
-Component ([Accounts.tsx](https://github.com/shellyln/open-soql-react-hooks-example-app/blob/master/src/Accounts.tsx))
+### Component ([Accounts.tsx](https://github.com/shellyln/open-soql-react-hooks-example-app/blob/master/src/Accounts.tsx))
 ```ts
 ...
 const query = compile`
