@@ -35,6 +35,23 @@ const query = compile`
 
 function Accounts() {
     const { loading, err, data, refetch } = useSoql<Partial<Account>>(query, { condName: '' });
+
+    const subscriber: Subscriber = ({resolver, on, id}) => {
+        ...
+        refetch();
+    };
+
+    useEffect(() => {
+        ...
+        subscribe('Account', /* id of record */, subscriber);
+        ...
+        return () => {
+            ...
+            unsubscribe('Account', /* id of record */, subscriber);
+            ...
+        };
+    });
+
     ...
 }
 ```

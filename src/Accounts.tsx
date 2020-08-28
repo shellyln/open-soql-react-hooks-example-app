@@ -1,7 +1,6 @@
 
 import   React,
-       { useState,
-         useEffect }   from 'react';
+       { useEffect }   from 'react';
 import { Subscriber }  from 'open-soql/modules/types';
 import { Account,
          Contact }     from './types';
@@ -29,10 +28,9 @@ const query = compile`
 function Accounts() {
     const { loading, err, data, refetch } = useSoql<Partial<Account>>(query, { condName: '' });
 
-    const subscriber_: Subscriber = ({resolver, on, id}) => {
+    const subscriber: Subscriber = ({resolver, on, id}) => {
         refetch();
     };
-    const [{subscriber}] = useState({subscriber: subscriber_});
 
     // Subscribe to DML events with side effects hook.
     // When unsubscribing, you need to pass the same function object as when subscribing.
