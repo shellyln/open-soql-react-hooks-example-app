@@ -26,7 +26,9 @@ const store: Store = {
     ],
 };
 
-export const { compile, soql, insert, update, remove, touch, transaction, subscribe, unsubscribe } = build({
+export const { compile, soql, insert, update, remove, touch, notifyRemoved,
+        transaction, subscribe, unsubscribe, unsubscribeAllBySubscriber } = build({
+
     relationships: {
         Account: { Contacts: ['Contact'] },
         Contact: { Account: 'Account' },
